@@ -1,0 +1,24 @@
+body {
+	background-color: #262626;
+	color: white;
+}
+a {
+	color: #00BFFF;
+}
+a:hover {
+	color :#00c957;
+}
+
+.jumbotron {
+	background-color: #262626;
+}
+.navbar > .container .navbar-brand {
+	color: #002b54;
+	font-weight: 600;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #002b54;
+}
+.navbar-default .navbar-nav > li > a:hover {
+	color: #00BFFF;
+}
