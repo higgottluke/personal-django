@@ -5,6 +5,7 @@ from django.utils import timezone
 class BlogPost(models.Model):
 	author = models.ForeignKey('auth.User')
 	title = models.CharField(max_length=200)
+	summary = models.TextField()
 	content = models.TextField()
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)

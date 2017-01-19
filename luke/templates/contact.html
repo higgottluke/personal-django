@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Get in touch with me!</h1>
+<p class="lead">I would love to chat. Send me a message below!</p>
+
+<form role="form" action="" method="POST">
+	{% csrf_token %}
+	{% if form.non_field_errors %}
+	<div class="alert alert-danger" role="alert">
+		{{ form.non_field_errors }}
+	</div>
+	{% endif %}
+	<div class="row">
+		{% if form.contact_name.errors %}
+		<div class="col-12"><div class="alert alert-danger">{{ form.contact_name.errors }}</div></div>
+		{% endif %}
+		<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-12 text-sm-right">
+			<label for="{{ form.contact_name.id_for_label }}">Your Name:</label>
+		</div>
+		<div class="col-md-8 col-sm-7 col-12">
+			{{ form.contact_name }}
+		</div>
+	</div>
+	<div class="row">
+		{% if form.contact_email.errors %}
+		<div class="col-12"><div class="alert alert-danger">{{ form.contact_email.errors }}</div></div>
+		{% endif %}
+		<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-12 text-sm-right">
+			<label for="{{ form.contact_email.id_for_label }}">Your Email Address:</label>
+		</div>
+		<div class="col-md-8 col-sm-7 col-12">
+			{{ form.contact_email }}
+		</div>
+	</div>
+	<div class="row">
+		{% if form.content.errors %}
+		<div class="col-12"><div class="alert alert-danger">{{ form.content.errors }}</div></div>
+		{% endif %}
+		<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-12 text-sm-right">
+			<label for="{{ form.content.id_for_label }}">Message:</label>
+		</div>
+		<div class="col-md-8 col-sm-7 col-12">
+			{{ form.content }}
+		</div>
+	</div>
+	<div class="row">
+	<button type="submit" class="btn btn-primary">Send!</button>
+</div>
+</form>
+
+{% endblock %}
