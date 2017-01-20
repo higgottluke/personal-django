@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
+{% block title %}Contact Luke{% endblock %}
 {% block content %}
 <h1>Get in touch with me!</h1>
 <p class="lead">I would love to chat. Send me a message below!</p>
+
+{% if messages %}
+{% for message in messages %}
+	<div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {{ message }}
+        </div>
+{% endfor %}
+{% endif %}
 
 <form role="form" action="" method="POST">
 	{% csrf_token %}
@@ -45,8 +55,12 @@
 		</div>
 	</div>
 	<div class="row">
-	<button type="submit" class="btn btn-primary">Send!</button>
-</div>
+		<button type="submit" class="btn btn-primary">Send!</button>
+	</div>
 </form>
+
+<div class="row" style="padding-top: 60px;">
+<p>Afraid of web forms? Me too. You can email me directly at <a href="mailto:luke@higgott.com?Subject=Hey,%20Luke!" target="_top">luke@higgott.com</a>, if you'd like that better.</p>
+</div>
 
 {% endblock %}

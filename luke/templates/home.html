@@ -1,29 +1,31 @@
 {% extends 'base.html' %}
 
+{% block title %}Luke Higgott{% endblock %}
+
 {% block content %}
 
-    <div class="jumbotron">
-        <h1>Hey, I'm Luke</h1>
-        <p>I'm a full-time student and part-time staff member at <a href="http://www.fullerton.edu">Cal State Fullerton</a>. I major in Computer Science and I work in social media, marketing, and web development.</p>
-        <p><a class="btn btn-primary btn-lg" href="/about/" role="button">Learn About Me &raquo;</a></p>
-      </div>
+<div class="jumbotron">
+	<h1>Hey, I'm Luke</h1>
+	<p>I'm a full-time student and part-time staff member at <a href="http://www.fullerton.edu">Cal State Fullerton</a>. I major in Computer Science and I work in social media, marketing, and web development.</p>
+	<p><a class="btn btn-primary btn-lg" href="/about/" role="button">Learn About Me &raquo;</a></p>
+</div>
 
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-sm-6 col-12">
-          <h2>Projects</h2>
-          <a class="btn btn-primary btn-block" href="#" role="button">Check them out &raquo;</a>
-          <p>Here's all the stuff I'm working on. Some is for work, some is for school, and some of it is just for fun. Most of it is in Python, my favorite programming lanuage.</p>
-       </div>
-        <div class="col-sm-6 col-12">
-          <h2>Blog</h2>
-          <a class="btn btn-primary btn-block align-bottom" href="#" role="button">Read about my life &raquo;</a>
-          <p>Read about what's going on in my life. I'll usually write a post when I learn how to do something new and fun.</p>
-        </div>
+<!-- Example row of columns -->
+<div class="row">
+	<div class="col-sm-6 col-12">
+		<h2>Blog</h2>
+		<a class="btn btn-primary btn-block align-bottom" href="/blog/" role="button">Read about my life &raquo;</a>
+		<p>Read about what's going on in my life. I'll usually write a post when I learn how to do something new and fun.</p>
+	</div>
+	<div class="col-sm-6 col-12">
+		<h2>Projects</h2>
+		<a class="btn btn-primary btn-block" href="/projects/" role="button">Check them out &raquo;</a>
+		<p>Here's all the stuff I'm working on. Some is for work, some is for school, and some of it is just for fun. Most of it is in Python, my favorite programming lanuage.</p>
 
-      </div>
+	</div>
+</div>
 
-      <hr>
+<hr>
 
 {% endblock %}

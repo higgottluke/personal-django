@@ -45,10 +45,12 @@ h6.date {
 .navbar-light .navbar-brand:hover {
 	color: #00BFFF;
 }
+.nav-item.active > a.nav-link  {
+	color: #00BFFF !important;
+}
 .footer-light {
 	background-color: white;
 }
-
 /* sticky footer */
 html {
   position: relative;

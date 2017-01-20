@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
+{% block title %}Luke's Blog{% endblock %}
 {% block content %}
 <h1>The Blog</h1>
 <p class="lead">Here's some updates about my life.</p>
 
 {% for post in posts %}
 <div class="row">
-  <div class="col-md-6 col-sm-12"><h2 class="title">{{ post.title }}</h2></div>
+  <div class="col-md-6 col-sm-12"><h2 class="title"><a href="/blog/{{ post.dash_name }}/">{{ post.title }} &raquo;</a></h2></div>
   <div class="col-md-6 col-sm-12"><h6 class="float-md-right date">{{ post.published_date }}</h6></div>
 </div>
 <div class="row">

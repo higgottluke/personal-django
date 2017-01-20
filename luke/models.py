@@ -16,3 +16,17 @@ class BlogPost(models.Model):
 
 	def __str__(self):
 		return self.title
+
+	def dash_name(self):
+		dash_name = str(self.title.replace(" ", "-"))
+		return dash_name
+
+class Project(models.Model):
+	title = models.CharField(max_length=200)
+	summary = models.TextField()
+	content = models.TextField()
+	created_date = models.DateTimeField(default=timezone.now)
+	def __str__(self):
+		return self.title
+	def dash_name(self):
+		dash_name = str(self.title.replace(" ", "-"))
