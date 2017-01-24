@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from django.template import Context
 from django.template.loader import get_template
 from django.contrib import messages
+from django.http import Http404
 
 from .models import BlogPost, Project
 from .forms import ContactForm
@@ -21,7 +22,11 @@ def blog_home(request):
 
 def blog_post(request, name):
 	undashed_name = name.replace("-", " ")
-	post = BlogPost.objects.get(title=undashed_name)
+	try:
+		post = BlogPost.objects.get(title=undashed_name)
+	except BlogPost.DoesNotExist:
+		messages.add_message(request, messages.ERROR, "I don't have any posts with that name. Sorry!")
+		raise Http404()
 	return render(request, 'blog_post.html', {'post': post})
 
 def projects_home(request):
@@ -63,3 +68,10 @@ def contact(request):
 	return render(request, 'contact.html', {
 		'form': form_class,
 		})
+
+
+"""
+# CUSTOM ERROR PAGES
+def custom404:
+	return HttpResponseNotFound
+	"""

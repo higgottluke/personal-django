@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}500 - Server Error{% endblock %}
+
+{% block content %}
+
+
+{% if messages %}
+{% for message in messages %}
+	<div class="alert alert-danger">
+        {{ message }}
+        </div>
+{% endfor %}
+{% endif %}
+
+
+<div class="jumbotron">
+	<h1>Something is messed up</h1>
+	<p class="lead">Something about this page didn't load right. You made my server upset.</p>
+	<p>Do me a favor and <a href="/contact/">tell me how you got here</a> so that I can fix the problem. Thanks!</p>
+	<p><a class="btn btn-primary btn-lg" href="/contact/" role="button">Contact Me &raquo;</a></p>
+</div>
+
+<hr>
+
+{% endblock %}

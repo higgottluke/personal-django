@@ -20,3 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('luke.urls')),
 ]
+#handler404 = 'luke.views.custom404'
+#handler500 = 'luke.views.custom500'
