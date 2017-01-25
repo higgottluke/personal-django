@@ -35,7 +35,11 @@ def projects_home(request):
 
 def project(request, name):
 	undashed_name = name.replace("-", " ")
-	project = Project.objects.get(title=undashed_name)
+	try:
+		project = Project.objects.get(title=undashed_name)
+	except Project.DoesNotExist:
+		messages.add_message(request, messages.ERROR, "I don't have any projects with that name. Sorry!")
+		raise Http404()
 	return render(request, 'project.html', {'project': project})
 
 def contact(request):
