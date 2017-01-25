@@ -30,3 +30,4 @@ class Project(models.Model):
 		return self.title
 	def dash_name(self):
 		dash_name = str(self.title.replace(" ", "-"))
+		return dash_name
