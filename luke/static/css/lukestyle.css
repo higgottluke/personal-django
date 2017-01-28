@@ -7,9 +7,14 @@ body > .container {
 }
 a {
 	color: #00BFFF;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+
 }
 a:hover {
 	color :#00c957;
+	text-decoration: none;
 }
 hr {
 	border-color: white;
@@ -32,21 +37,28 @@ h6.date {
 	padding-right: 0.9rem;
 }
 .navbar-light .navbar-nav .nav-link {
-	color: #262626;
+	color: white;
 	font-weight: 500;
 }
 .navbar-light .navbar-nav .nav-link:hover {
-	color: #00BFFF;
+	color: #00c957;
 }
 .navbar-light .navbar-brand {
-	color: #262626;
+	color: white;
 	font-weight: 600;
+}
+
+.bg-faded {
+	background-color: #0077cc;
 }
 .navbar-light .navbar-brand:hover {
 	color: #00BFFF;
 }
 .nav-item.active > a.nav-link  {
-	color: #00BFFF !important;
+	-webkit-animation:rainbow 8s infinite;
+	-ms-animation:rainbow 8s infinite;
+	-o-animation:rainbow 8s infinite;
+	animation:rainbow 8s infinite;
 }
 .footer-light {
 	background-color: white;
@@ -71,6 +83,17 @@ body {
 }
 
 /* end sticky footer */
+
+.btn-primary {
+	background-color: #00BFFF;
+	border-color: #00BFFF;
+}
+
+.btn-primary:hover {
+	background-color: #00c957;
+	border-color: #00c957;
+}
+
 
 .rainbow:hover {
 -webkit-animation:rainbow 8s infinite;
