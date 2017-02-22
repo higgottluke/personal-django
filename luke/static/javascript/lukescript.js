@@ -1,12 +1,15 @@
 //Javascript function to set the active page to class active in the navbar
 
-function setActive() {
-  aObj = document.getElementById('nav-menu').getElementsByTagName('a');
-  for(i=0;i<aObj.length;i++) { 
-    if(document.location.href.indexOf(aObj[i].href)>=0) {
-      aObj[i].parentElement.className+=' active';
+
+$('a[href*="#"]:not([href="#"])').click(function() {
+  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    if (target.length) {
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
     }
   }
-}
-
-window.onload = setActive;
+});

@@ -1,32 +1,51 @@
 {% extends 'base.html' %}
 
 {% block title %}About Luke{% endblock %}
+{% block bodystyle %}class="profile-page"{% endblock %}
+{% load staticfiles %}
 {% block content %}
-    <h1>About Luke</h1>
-    <p class="lead">Here's the entire story of my life. Not really. It's actually just some basic stuff.</p>
-    <h3>The Basics</h3>
-    <p>I was born and raised in sunny Los Angeles, California, with my mom and dad and a healthy number of dogs. I spent the first two years of my college education majoring in Kinesiology before I decided to get my feet wet with programming, and I never looked back.</p>
-    <h3>My Education</h3>
-    <p>As I'm writing this, I'm going into my second semester as a senior in Computer Science at California State University, Fullerton. Most people in my position are gearing up to graduate; I still have a year left, but I'm loving every minute of the experience.
-      <h3>My Job</h3>
-      <p>I am a part-time student assistant for the department of <a href="http://fullerton.edu/housing">Housing and Residence Life</a> at Cal State Fullerton. I work where people sleep. I'm responsible for managing social media and marketing efforts for the department. Over my two years here, my job has started to slowly include more work in web design and development.</p>
-      <p>Here's an overview of what I'm responsible for in my job:</p>
-      <ul>
-        <li>Graphic Design</li>
-        <li>Photography</li>
-        <li>Marketing for large-scale events and programs</li>
-        <li><a href="#">Brand and Identity Standards</a>, training, and enforcement</li>
-        <li>Engaging students on social media platforms like <a href="http://facebook.com/csufhousing/">Facebook</a>, <a href="http://instagram.com/csufhousing/">Instagram</a>, and <a href="http://twitter.com/csufhousing/">Twitter</a></li>
-        <li><a href="http://fullerton.edu/housing">Website</a> design and web application development</li>
-      </ul>
-      <h3>Personal Favorites</h3>
-      <p>Everyone has a favorite programming language, right? Well, mine is <a href="http://python.org">Python</a>. Python first caught my attention when I started <a href="#">this project</a> at work and ended up diving face-first into <a href="https://djangoproject.com">Django</a>. Since then, Django has become my favorite framework for making web-based applications. Would I call myself an expert? No. But I have a Lynda.com badge that says otherwise.</p>
-      <h3>This Website</h3>
-      <p>I host this website using <a href="https://pythonanywhere.com/">PythonAnywhere</a> with Python and <a href="https://djangoproject.com">Django</a>. My dad owns the higgott.com domain, so that's basically free. Thanks, Tom!</p>
-      <p>This website meets the same CSU Accessible Technology Initiative requirements that I have to follow at work. Why? Because everyone should be able to read a website, even if they have disabilities like low vision, colorblindness, etc.</p>
-      <p>I use theme elements and core CSS from Bootstrap 4 to make my website responsive and mobile-friendly. Keep reading below for my thoughts on open-source software and code sharing.</p>
-      <h3>The Open Source Community</h3>
-      <p>Even though I'm pretty new to the programming and web development scene, I've already developed a <strong>massive</strong> appreciation for the folks who contribute to open source projects. I believe in the accessibility of technology, and in the idea that anyone who wants to learn to program should feel able and supported by the rest of the community.</p>
+<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1444841461048-410031d44215?dpr=2&auto=format&fit=crop&w=1500&h=993&q=80&cs=tinysrgb&crop=');"></div>
+<div class="main main-raised">
+<div class="container">
+  <div class="profile-content">
+      <div class="row">
+        <div class="profile">
+              <img src="{% static 'img/luke.jpg' %}" alt="Luke's face" class="img-circle img-responsive img-raised">
+            <div class="name">
+              <h2 class="title">Luke Higgott</h2>
+              <h6>Student, Feminist, Full-Stack Web Developer and Graphic Designer</h6>
+            </div>
+            <hr>
+          </div>
+          </div>
 
-
+      </div>
+      <div class="section text-center">
+        <p class="lead profile-lead">Here's the entire story of my life. Not really. It's actually just some basic stuff.</p>
+        <h3>The Basics</h3>
+        <p>I was born and raised in sunny Los Angeles, California, with my mom and dad and a healthy number of dogs. I spent the first two years of my college education majoring in Kinesiology before I decided to get my feet wet with programming, and I never looked back.</p>
+        <h3>My Education</h3>
+        <p>As I'm writing this, I'm going into my second semester as a senior in Computer Science at California State University, Fullerton. Most people in my position are gearing up to graduate; I still have a year left, but I'm loving every minute of the experience.</p>
+        <h3>My Job</h3>
+        <p>I am a part-time student assistant for the department of <a href="http://fullerton.edu/housing">Housing and Residence Life</a> at Cal State Fullerton. I work where people sleep. I'm responsible for managing social media and marketing efforts for the department. Over my two years here, my job has started to slowly include more work in web design and development.</p>
+        <p>Here's an overview of what I'm responsible for in my job:</p>
+        <ul class="inline-list">
+          <li>Graphic Design</li>
+          <li>Photography</li>
+          <li>Marketing for large-scale events and programs</li>
+          <li><a href="#">Brand and Identity Standards</a>, training, and enforcement</li>
+          <li>Engaging students on social media platforms like <a href="http://facebook.com/csufhousing/">Facebook</a>, <a href="http://instagram.com/csufhousing/">Instagram</a>, and <a href="http://twitter.com/csufhousing/">Twitter</a></li>
+          <li><a href="http://fullerton.edu/housing">Website</a> design and web application development</li>
+        </ul>
+        <h3>Personal Favorites</h3>
+        <p>Everyone has a favorite programming language, right? Well, mine is <a href="http://python.org">Python</a>. Python first caught my attention when I started <a href="#">this project</a> at work and ended up diving face-first into <a href="https://djangoproject.com">Django</a>. Since then, Django has become my favorite framework for making web-based applications. Would I call myself an expert? No. But I have a Lynda.com badge that says otherwise.</p>
+        <h3>This Website</h3>
+        <p>I host this website using <a href="https://pythonanywhere.com/">PythonAnywhere</a> with Python and <a href="https://djangoproject.com">Django</a>. My dad owns the higgott.com domain, so that's basically free. Thanks, Tom!</p>
+        <p>This website meets the same CSU Accessible Technology Initiative requirements that I have to follow at work. Why? Because everyone should be able to read a website, even if they have disabilities like low vision, colorblindness, etc.</p>
+        <p>I use theme elements and core CSS from Bootstrap 4 to make my website responsive and mobile-friendly. Keep reading below for my thoughts on open-source software and code sharing.</p>
+        <h3>The Open Source Community</h3>
+        <p>Even though I'm pretty new to the programming and web development scene, I've already developed a <strong>massive</strong> appreciation for the folks who contribute to open source projects. I believe in the accessibility of technology, and in the idea that anyone who wants to learn to program should feel able and supported by the rest of the community.</p>
+</div>
+</div>
+</div>
 {% endblock %}

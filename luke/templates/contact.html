@@ -1,66 +1,50 @@
 {% extends 'base.html' %}
 
 {% block title %}Contact Luke{% endblock %}
+{% block bodystyle %}class="profile-page"{% endblock %}
+{% load staticfiles %}
+
 {% block content %}
-<h1>Get in touch with me!</h1>
-<p class="lead">I would love to chat. Send me a message below!</p>
-
-{% if messages %}
-{% for message in messages %}
-	<div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-        {{ message }}
-        </div>
-{% endfor %}
-{% endif %}
-
-<form role="form" action="" method="POST">
-	{% csrf_token %}
-	{% if form.non_field_errors %}
-	<div class="alert alert-danger" role="alert">
-		{{ form.non_field_errors }}
-	</div>
-	{% endif %}
-	<div class="row">
-		{% if form.contact_name.errors %}
-		<div class="col-12"><div class="alert alert-danger">{{ form.contact_name.errors }}</div></div>
+<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1444841461048-410031d44215?dpr=2&auto=format&fit=crop&w=1500&h=993&q=80&cs=tinysrgb&crop=');"></div>
+<div class="main main-raised">
+	<div class="container">
+		<div class="section section-landing">
+		{% if messages %}
+			{% for message in messages %}
+			<div class="row">
+				<div class="alert alert-{{ message.tags }}" style="margin-right: 20px;">
+					{{ message }}
+				</div>
+			</div>
+			{% endfor %}
 		{% endif %}
-		<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-12 text-sm-right">
-			<label for="{{ form.contact_name.id_for_label }}">Your Name:</label>
+			<h1 class="title text-center">Get in touch with me!</h1>
+			<form role="form" class="form" method="POST" action="/contact/">
+				{% csrf_token %}
+				<div class="col-sm-6">
+					<div class="form-group label-floating">
+						<label class="control-label">Your Name</label>
+						{{ form.contact_name }}
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group label-floating">
+						<label class="control-label">Email Address</label>
+						{{ form.contact_email }}
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="form-group label-floating">
+						<label class="control-label">Your Message</label>
+						{{ form.content }}
+					</div>
+				</div>
+				<div class="text-center">
+					<button class="btn btn-primary btn-lg" type="submit" name="submit">Send!</button>
+				</div>
+			</form>
 		</div>
-		<div class="col-md-8 col-sm-7 col-12">
-			{{ form.contact_name }}
-		</div>
+		<h5 class="small text-center">Afraid of web forms? I am too, sometimes. I promise mine works, but you can email me directly at <a href="mailto:luke@higgott.com">luke@higgott.com</a> instead, if you want.</h5>
 	</div>
-	<div class="row">
-		{% if form.contact_email.errors %}
-		<div class="col-12"><div class="alert alert-danger">{{ form.contact_email.errors }}</div></div>
-		{% endif %}
-		<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-12 text-sm-right">
-			<label for="{{ form.contact_email.id_for_label }}">Your Email Address:</label>
-		</div>
-		<div class="col-md-8 col-sm-7 col-12">
-			{{ form.contact_email }}
-		</div>
-	</div>
-	<div class="row">
-		{% if form.content.errors %}
-		<div class="col-12"><div class="alert alert-danger">{{ form.content.errors }}</div></div>
-		{% endif %}
-		<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-12 text-sm-right">
-			<label for="{{ form.content.id_for_label }}">Message:</label>
-		</div>
-		<div class="col-md-8 col-sm-7 col-12">
-			{{ form.content }}
-		</div>
-	</div>
-	<div class="row">
-		<button type="submit" class="btn btn-primary">Send!</button>
-	</div>
-</form>
-
-<div class="row" style="padding-top: 60px;">
-<p>Afraid of web forms? Me too. You can email me directly at <a href="mailto:luke@higgott.com?Subject=Hey,%20Luke!" target="_top">luke@higgott.com</a>, if you'd like that better.</p>
 </div>
-
 {% endblock %}

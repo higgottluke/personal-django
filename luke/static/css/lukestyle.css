@@ -1,0 +1,102 @@
+
+a:hover, .navbar-brand a:hover {
+	text-decoration: none;
+	font-weight: 500;
+	color: #00cc92 !important;
+}
+
+a:focus {
+	text-decoration: none !important;
+}
+
+h2.title {
+	text-transform;
+}
+
+ul.tags {
+	display: flex;
+	justify-content: center;
+	padding-left: 0;
+}
+ul.tags li {
+	display: inline;
+	margin: 0px 10px;
+}
+
+ul.inline-list {
+	list-style: none;
+	padding-left: 0;
+}
+.inline-list li {
+
+}
+
+.navbar-brand a {
+	font-size
+}
+.navbar.navbar-transparent {
+	background-color: rgba(0,0,0, 0.5);
+}
+
+.btn-primary:hover {
+	background-color: #00cc92 !important;
+}
+
+.landing-lead > a {
+	color: #0abeff;
+	font-weight: 500;
+}
+.landing-lead > a:hover, .feature-info > a:hover i {
+	color: #00cc92 !important;
+	font-weight: 500;
+}
+
+ul.nav li a {
+	text-align: center;
+	color: white !important;
+	font-weight: 600;
+}
+
+p.profile-lead {
+	margin-top: -30px;
+}
+
+a.btn-primary:hover {
+	color: white !important;
+}
+
+.description, .info p, .luke-info p, p.summary, p.lead {
+	color: #000a33;
+}
+
+.img-small {
+	max-width: 150px;
+	margin: auto;
+}
+.feature-info {
+	padding-top: 0px;
+	display: flex;
+	flex-direction: column;
+}
+h4.info-title {
+	margin-top: 15px !important;
+}
+
+.feature-info > a:hover {
+	font-weight: inherit !important;
+	color: inherit !important;
+}
+
+.feature-info > a:hover h4 {
+	font-size: 3em;
+}
+.feature-info > a:hover img {
+	box-shadow: 0 16px 38px -12px rgba(0, 204, 146, 0.56), 0 4px 25px 0px rgba(0, 204, 146, 0.12), 0 8px 10px -5px rgba(0, 204, 146, 0.2);
+}
+* {
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  -ms-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}

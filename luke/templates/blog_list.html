@@ -1,18 +1,29 @@
 {% extends 'base.html' %}
 
 {% block title %}Luke's Blog{% endblock %}
-{% block content %}
-<h1>The Blog</h1>
-<p class="lead">Here's some updates about my life.</p>
+{% block bodystyle %}class="profile-page"{% endblock %}
+{% load staticfiles %}
 
-{% for post in posts %}
-<div class="row">
-  <div class="col-md-6 col-sm-12"><h2 class="title"><a href="/blog/{{ post.dash_name }}/">{{ post.title }} &raquo;</a></h2></div>
-  <div class="col-md-6 col-sm-12"><h6 class="float-md-right date">{{ post.published_date }}</h6></div>
+{% block content %}
+<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1444841461048-410031d44215?dpr=2&auto=format&fit=crop&w=1500&h=993&q=80&cs=tinysrgb&crop=');"></div>
+<div class="main main-raised">
+	<div class="container">
+		<div class="section text-center section-landing">
+			<h2 class="title">Welcome to the blog!</h2>
+			<p>I hope you enjoy reading about the stuff going on in my life!</p>
+		</div>
+		<div class="section text-center" style="margin-top: -85px">
+			{% for post in posts %}
+			<hr />
+			<h3 class="title text-center">{{ post.title }}</h3>
+			<p class="post-summary">{{ post.summary }}</p>
+			<ul class="tags">
+				{% for tag in post.get_tag_list %}
+					{% if tag %}<li><a href="#" class="btn btn-white btn-xs">{{ tag }}</a></li>{% endif %}
+				{% endfor %}
+			</ul>
+		{% endfor %}
+	</div>
 </div>
-<div class="row">
-  <div class="col-md-12"><p>{{ post.summary }}</p></div>
-</div>
-<hr />
-{% endfor %}
+
 {% endblock %}
