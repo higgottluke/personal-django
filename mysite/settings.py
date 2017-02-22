@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1g1tb%8r&o9re-82qglp#i_fr+(+*d^x6n#piyozhg17bq0lz-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
@@ -122,9 +122,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # EMAIL STUFF
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = 'luke@higgott.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
-EMAIL_PORT = 1025
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'luke@higgott.com'
+EMAIL_HOST_PASSWORD = 'Coldnose9495$'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587

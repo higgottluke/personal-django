@@ -3,24 +3,25 @@
 {% block title %}404 - Not Found{% endblock %}
 
 {% block content %}
-
-
-{% if messages %}
-{% for message in messages %}
-	<div class="alert alert-danger">
-        {{ message }}
-        </div>
-{% endfor %}
-{% endif %}
-
-
-<div class="jumbotron">
-	<h1>There's nothing here</h1>
-	<p class="lead">For some reason, you're trying to access a page that doesn't exist.</p>
-	<p>Do me a favor and <a href="/contact/">tell me how you got here</a> so that I can fix the problem.</p>
-	<p><a class="btn btn-primary btn-lg" href="/contact/" role="button">Contact Me &raquo;</a></p>
+<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1444841461048-410031d44215?dpr=2&auto=format&fit=crop&w=1500&h=993&q=80&cs=tinysrgb&crop=');">
 </div>
-
+<div class="main main-raised">
+	<div class="container">
+		<div class="section text-center section-landing">
+		{% if messages %}
+		{% for message in messages %}
+			<div class="alert alert-danger">
+			{{ message }}
+			</div>
+			{% endfor %}
+			{% endif %}
+			<h1>There's nothing here</h1>
+			<p class="lead">For some reason, you're trying to access a page that doesn't exist.</p>
+			<p>Do me a favor and <a href="/contact/">tell me how you got here</a> so that I can fix the problem.</p>
+			<p><a class="btn btn-primary btn-lg" href="/contact/" role="button">Contact Me &raquo;</a></p>
+		</div>
+	</div>
+</div>
 <hr>
 
 {% endblock %}

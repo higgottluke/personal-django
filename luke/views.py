@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.template import Context
 from django.template.loader import get_template
 from django.contrib import messages
 from django.http import Http404
+from .forms import ContactForm
 
 from .models import BlogPost, Project
 from .forms import ContactForm
@@ -18,7 +19,8 @@ def about(request):
 
 def blog_home(request):
 	posts = BlogPost.objects.all().order_by('published_date')
-	return render(request, 'blog_list.html', {'posts': posts})
+	showing = 'all'
+	return render(request, 'blog_list.html', {'posts': posts, 'showing': showing})
 
 def blog_post(request, name):
 	undashed_name = name.replace("-", " ")
@@ -53,21 +55,38 @@ def contact(request):
 			contact_email = request.POST.get('contact_email', '')
 			form_content = request.POST.get('content', '')
 
-			# send the info
-			send_mail(
-				'New Contact Form from {}'.format(contact_name),
-				form_content,
-				contact_email,
-				['higgottluke@gmail.com'],
-				fail_silently=False,
+			template = get_template('contact_template.html')
+			context = Context({
+				'contact_name': contact_name,
+				'contact_email': contact_email,
+				'form_content': form_content,
+				})
+			content = template.render(context)
+
+			email_to_luke = EmailMessage(
+				"New Contact Form Submission",
+				content,
+				'luke@higgott.com',
+				['luke@higgott.com',],
+				reply_to=[contact_email]
 				)
-				
-			messages.add_message(request, messages.SUCCESS, "Your message was sent successfully! I'll answer as soon as I can.")
+			email_to_luke.content_subtype = "html"
+			email_to_luke.send()
+			email_to_them = EmailMessage(
+				"Thanks for the message!",
+				"<p>This is what you sent me:</p>" + content + "<p>I'll answer as soon as I can.</p>",
+				'luke@higgott.com',
+				[contact_email],
+				reply_to=['luke@higgott.com']
+				)
+			email_to_them.content_subtype = "html"
+			email_to_them.send()
+
+			messages.add_message(request, messages.SUCCESS, "Your message was sent successfully! I'll answer as soon as I can. You should receive a copy of your message at your email address soon.")
 			return redirect('contact')
 		else:
 			messages.add_message(request, messages.WARNING, "Something went wrong. Try filling the form out again.")
 			return redirect('contact')
-
 
 	return render(request, 'contact.html', {
 		'form': form_class,
