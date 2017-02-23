@@ -17,11 +17,21 @@ def home(request):
 def about(request):
 	return render(request, 'about.html')
 
-def blog_home(request):
-	posts = BlogPost.objects.all().order_by('published_date')
-	showing = 'all'
-	return render(request, 'blog_list.html', {'posts': posts, 'showing': showing})
+def blog_home(request, tag=''):
+	if tag != '':
+		tag = tag.replace('-',' ')
+		posts = BlogPost.objects.filter(tags__contains=tag).order_by('published_date')
+		if len(posts)!= 0:
+			messagestring = "Showing {} blog post(s) with tags matching: '{}'.".format(len(posts), tag)
+			messages.add_message(request, messages.INFO, messagestring)
+			return render(request, 'blog_list.html', {'posts': posts})
+		else:
+			messagestring = "I have no posts with a tag matching: '{}'".format(tag)
+			messages.add_message(request, messages.ERROR, messagestring)
 
+	posts = BlogPost.objects.all().order_by('published_date')
+	return render(request, 'blog_list.html', {'posts': posts}) #show all posts
+	
 def blog_post(request, name):
 	undashed_name = name.replace("-", " ")
 	try:
