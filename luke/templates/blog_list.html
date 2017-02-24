@@ -31,7 +31,7 @@
 		<div class="section text-center" style="margin-top: -85px">
 			{% for post in posts %}
 			<hr />
-			<h3 class="title text-center">{{ post.title }}</h3>
+			<a href="/blog/{{ post.dash_name }}"><h3 class="title text-center">{{ post.title }}</h3></a>
 			<p class="post-summary">{{ post.summary }}</p>
 			<ul class="tags">
 				{% for tag in post.get_tag_list %}

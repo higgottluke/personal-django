@@ -31,7 +31,7 @@ def blog_home(request, tag=''):
 
 	posts = BlogPost.objects.all().order_by('published_date')
 	return render(request, 'blog_list.html', {'posts': posts}) #show all posts
-	
+
 def blog_post(request, name):
 	undashed_name = name.replace("-", " ")
 	try:
@@ -41,9 +41,20 @@ def blog_post(request, name):
 		raise Http404()
 	return render(request, 'blog_post.html', {'post': post})
 
-def projects_home(request):
+def projects_home(request, tag=''):
+	if tag != '':
+		tag = tag.replace('-',' ')
+		projects = Project.objects.filter(tags__contains=tag).order_by('created_date')
+		if len(projects)!= 0:
+			messagestring = "Showing {} project(s) with tags matching: '{}'.".format(len(projects), tag)
+			messages.add_message(request, messages.INFO, messagestring)
+			return render(request, 'projects_list.html', {'projects': projects})
+		else:
+			messagestring = "I have no projects with a tag matching: '{}'".format(tag)
+			messages.add_message(request, messages.ERROR, messagestring)
+
 	projects = Project.objects.all().order_by('created_date')
-	return render(request, 'projects_list.html', {'projects': projects})
+	return render(request, 'projects_list.html', {'projects': projects}) #show all posts
 
 def project(request, name):
 	undashed_name = name.replace("-", " ")

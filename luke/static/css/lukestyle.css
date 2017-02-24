@@ -9,32 +9,18 @@ a:focus {
 	text-decoration: none !important;
 }
 
-h2.title {
-	text-transform;
-}
-
 ul.tags {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	padding-left: 0;
 }
 ul.tags li {
 	display: inline;
-	margin: 0px 10px;
+	margin: 0 10px;
 }
 
-ul.inline-list {
-	list-style: none;
-	padding-left: 0;
-}
-.inline-list li {
-
-}
-
-.navbar-brand a {
-	font-size
-}
-.navbar.navbar-transparent {
+.navbar .navbar-transparent {
 	background-color: rgba(0,0,0, 0.5);
 }
 
@@ -51,13 +37,13 @@ ul.inline-list {
 	font-weight: 500;
 }
 
-ul.nav li a {
+.nav li a {
 	text-align: center;
 	color: white !important;
 	font-weight: 600;
 }
 
-p.profile-lead {
+.profile-lead {
 	margin-top: -30px;
 }
 
@@ -65,7 +51,11 @@ a.btn-primary:hover {
 	color: white !important;
 }
 
-.description, .info p, .luke-info p, p.summary, p.lead {
+a.btn-danger:hover {
+	color: white !important;
+}
+
+.description, .info p, .luke-info p, .summary, .lead {
 	color: #000a33;
 }
 
@@ -78,7 +68,7 @@ a.btn-primary:hover {
 	display: flex;
 	flex-direction: column;
 }
-h4.info-title {
+.info-title {
 	margin-top: 15px !important;
 }
 
@@ -91,12 +81,20 @@ h4.info-title {
 	font-size: 3em;
 }
 .feature-info > a:hover img {
-	box-shadow: 0 16px 38px -12px rgba(0, 204, 146, 0.56), 0 4px 25px 0px rgba(0, 204, 146, 0.12), 0 8px 10px -5px rgba(0, 204, 146, 0.2);
+	box-shadow: 0 16px 38px -12px rgba(0, 204, 146, 0.56), 0 4px 25px 0 rgba(0, 204, 146, 0.12), 0 8px 10px -5px rgba(0, 204, 146, 0.2);
 }
-* {
+
+.section-post {
+	margin-top: -40px;
+}
+
+h1, h2, h3, h5, h6, p, div, nav, a {
   -webkit-transition: all 0.2s ease 0s;
   -moz-transition: all 0.2s ease 0s;
   -o-transition: all 0.2s ease 0s;
   -ms-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
+}
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+	max-height: 380px;
 }

@@ -8,21 +8,38 @@
 <div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1444841461048-410031d44215?dpr=2&auto=format&fit=crop&w=1500&h=993&q=80&cs=tinysrgb&crop=');"></div>
 <div class="main main-raised">
 	<div class="container">
+		{% if messages %}
+		{% for message in messages %}
+		<div class="alert alert-info">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						{{ message }}
+					</div>
+					<div class="text-center col-xs-12 col-sm-6">
+						<a href="/blog/" class="btn btn-danger btn-xs">Remove Filters</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		{% endif %}
 		<div class="section text-center section-landing">
-			<h2 class="title">Check out what I did!</h2>
-			<p>Here's a whole bunch of stuff I'm working on!</p>
+			<h2 class="title">Check out what I'm working on!</h2>
+			<p>I'd love it if you sent me feedback about my work, too.</p>
 		</div>
 		<div class="section text-center" style="margin-top: -85px">
 			{% for project in projects %}
 			<hr />
-			<h3 class="title text-center">{{ project.title }}</h3>
-			<p class="post-summary">{{ project.summary }}</p>
+			<a href="/projects/{{ project.dash_name }}"><h3 class="title text-center">{{ project.title }}</h3></a>
+			<p class="project-summary">{{ project.summary }}</p>
 			<ul class="tags">
 				{% for tag in project.get_tag_list %}
-					{% if tag %}<li><a href="#" class="btn btn-white btn-xs">{{ tag }}</a></li>{% endif %}
+				{% if tag %}<li><a href="/projects/tag/{{ tag|slugify }}" class="btn btn-white btn-xs">{{ tag }}</a></li>{% endif %}
 				{% endfor %}
 			</ul>
-		{% endfor %}
+			{% endfor %}
+		</div>
 	</div>
 </div>
 

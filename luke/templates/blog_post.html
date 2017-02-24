@@ -1,13 +1,27 @@
 {% extends 'base.html' %}
 
 {% block title %}{{ post.title }}{% endblock %}
+{% block bodystyle %}class="profile-page"{% endblock %}
+{% load staticfiles %}
+
 {% block content %}
-<div class="row">
-  <div class="col-md-6 col-sm-12"><h1 class="title">{{ post.title }}</h1></div>
-  <div class="col-md-6 col-sm-12"><h6 class="float-md-right date">{{ post.published_date }}</h6></div>
+<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1444841461048-410031d44215?dpr=2&auto=format&fit=crop&w=1500&h=993&q=80&cs=tinysrgb&crop=');"></div>
+<div class="main main-raised">
+  <div class="container">
+    <a href="/blog/" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-o-left"></i>   Back to all posts</a>
+    <div class="section section-post">
+    <h1 class="title">{{ post.title }}</h1>
+    <h6 class="date">{{ post.created_date }}</h6>
+    <p class="lead">{{ post.summary }}</p>
+    <hr />
+    {{ post.content|safe }}
+  </div>
+  <ul class="tags">
+    {% for tag in post.get_tag_list %}
+    {% if tag %}<li><a href="/blog/tag/{{ tag|slugify }}" class="btn btn-white btn-xs">{{ tag }}</a></li>{% endif %}
+    {% endfor %}
+  </ul>
+  </div>
 </div>
-<p class="lead">{{ post.summary }}</p>
-<hr />
-{{ post.content|safe }}
 
 {% endblock %}
