@@ -20,6 +20,10 @@ ul.tags li {
 	margin: 0 10px;
 }
 
+.text-center ul {
+	list-style: none;
+}
+
 .navbar .navbar-transparent {
 	background-color: rgba(0,0,0, 0.5);
 }
