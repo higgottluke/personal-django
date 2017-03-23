@@ -112,10 +112,3 @@ def contact(request):
 	return render(request, 'contact.html', {
 		'form': form_class,
 		})
-
-
-"""
-# CUSTOM ERROR PAGES
-def custom404:
-	return HttpResponseNotFound
-	"""
