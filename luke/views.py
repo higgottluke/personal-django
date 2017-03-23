@@ -65,6 +65,9 @@ def project(request, name):
 		raise Http404()
 	return render(request, 'project.html', {'project': project})
 
+def rateyaboss(request):
+	return render(request, 'rateyaboss.html')
+
 def contact(request):
 	form_class = ContactForm
 
