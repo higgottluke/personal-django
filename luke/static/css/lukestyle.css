@@ -108,3 +108,11 @@ h1, h2, h3, h5, h6, p, div, nav, a {
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
 	max-height: 380px;
 }
+.footer-transparent-custom {
+	bottom: 0;
+	position: absolute;
+	background-color: transparent;
+}
+.footer-transparent-custom::after {
+	background: none !important;
+}

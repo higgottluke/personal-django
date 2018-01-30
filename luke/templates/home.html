@@ -1,75 +1,31 @@
 {% extends 'base.html' %}
 
 {% block title %}Luke Higgott{% endblock %}
-{% block bodystyle %}class="landing-page"{% endblock %}
+{% block bodyclass %}landing-page{% endblock %}
 {% load staticfiles %}
 
-{% block content %}
+{% block pageheader %}
 
-<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1444841461048-410031d44215?dpr=2&auto=format&fit=crop&w=1500&h=993&q=80&cs=tinysrgb&crop=');">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
+<div class="page-header" data-parallax="true" style="background-image: url('{% static 'img/ultraviolet.jpg' %}');">
+	<div class="sun-over-area">
+		<div class="sun" style="background-image: url('{% static 'img/sun.svg' %}')"></div>
+	</div>
+	<div class="filter"></div>
+	<div class="content-center">
+		<div class="container">
+			<div class="motto">
 				<h1 class="title">Hey, I'm Luke</h1>
-				<h4 class="landing-lead">I'm a full-time student and part-time staff member at <a href="http://www.fullerton.edu">Cal State Fullerton</a>. I major in Computer Science and I work in social media, marketing, and web development.</h4>
-				<br />
-				<a href="#main" class="btn btn-primary btn-raised btn-lg">
-					<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>    Read about me
-				</a>
-				<a href="/contact/" class="btn btn-primary btn-raised btn-lg">
-					<i class="fa fa-envelope-o" aria-hidden="true"></i>    Get in touch
-				</a>
+				<h3 class="description">I'm a web application developer based in Orange County, California.</h3>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="main main-raised" id="main">
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}
+<footer class="footer footer-transparent-custom">
 	<div class="container">
-		<div class="section text-center section-landing">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<h2 class="title">Hi There!</h2>
-					<h5 class="description">Thanks for taking the time to stop by my website today. </h5>
-				</div>
-			</div>
-
-			<div class="features">
-				<div class="row">
-					<div class="col-md-4 col-sm-12 col-md-push-4">
-						<div class="feature-info luke-info">
-							<a href="/about/">
-								<img src="{% static 'img/luke.jpg' %}" alt="that's my face!" class="img-circle img-responsive img-raised img-small">
-								<h4 class="info-title">About Me</h4>
-								<p>If you're curious about why I do what I do, read on!</p>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-4 col-xs-12 col-md-pull-4">
-						<div class="info feature-info">
-							<a href="/blog/">
-								<div class="icon icon-primary">
-									<i class="fa fa-arrow-circle-o-left"></i>
-								</div>
-								<h4 class="info-title">My Blog</h4>
-								<p>Head on over this way to read about what's going on in my life and my thoughts about what's going on in the world.</p>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-4 col-xs-12">
-						<div class="info feature-info">
-							<a href="/projects/">
-								<div class="icon icon-primary">
-									<i class="fa fa-arrow-circle-o-right"></i>
-								</div>
-								<h4 class="info-title">Projects</h4>
-								<p>Over here, you can read about the stuff I'm working on. Some is for school, some is for work; most of it is in Python.</p>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<span class="text-white">&copy; 2017 Luke Higgott</span>
 	</div>
-</div>
-
+</footer>
 {% endblock %}
