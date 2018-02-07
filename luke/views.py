@@ -12,10 +12,13 @@ from .forms import ContactForm
 
 # Create your views here.
 def home(request):
-	return render(request, 'home.html', {})
+	return render(request, 'home.html')
 
 def about(request):
 	return render(request, 'about.html')
+
+def sun(request):
+	return render(request, 'sun.html')
 
 def blog_home(request, tag=''):
 	if tag != '':
