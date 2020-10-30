@@ -1,0 +1,34 @@
+{% extends 'base-geol.html' %}
+
+{% block title %}Luke Higgott{% endblock %}
+{% block bodyclass %}landing-page{% endblock %}
+{% load static %}
+
+{% block pageheader %}
+
+<div class="page-header" data-parallax="true" style="background-image: url('{% static 'img/ultraviolet.jpg' %}');">
+	<div class="sun-over-area">
+		<div class="sun" style="background-image: url('{% static 'img/sun.svg' %}')"></div>
+	</div>
+	<div class="filter"></div>
+	<div class="content-center">
+		<div class="container">
+			<div class="motto">
+				<h1 class="title">How the Earth Came to Be</h1>
+
+			</div>
+            <h3 class="description">The Big Bang™ and how it formed the Earth and other celestial bodies</h3>
+                <p class="lead">by Luke Higgott for Geology 201L</p><br />
+                <button type="button" class="btn btn-success">Explore<i class="fa fa-chevron-right"></i></button>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}
+<footer class="footer footer-transparent-custom">
+	<div class="container">
+		<span class="text-white">&copy; 2020 Luke Higgott</span>
+	</div>
+</footer>
+{% endblock %}

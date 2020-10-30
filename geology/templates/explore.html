@@ -1,0 +1,40 @@
+{% extends 'base-geol.html' %}
+
+{% block title %}Luke Higgott{% endblock %}
+{% block bodyclass %}landing-page{% endblock %}
+{% load static %}
+
+{% block pageheader %}
+
+    <div class="page-header" data-parallax="true" style="background-image: url('{% static 'img/ultraviolet.jpg' %}');">
+        <div class="sun-over-area">
+            <div class="sun" style="background-image: url('{% static 'img/sun.svg' %}')"></div>
+        </div>
+        <div class="filter"></div>
+        <div class="content-center">
+            <div class="container">
+                <div class="section section-feature">
+                    <div class="info">
+                        <h2> Where it all began</h2><br>
+                    <div class="icon icon-primary">
+                        <i class="nc-icon nc-atom"></i>
+                    </div>
+                    </div>
+                    <div class="description col-md-10 ml-auto mr-auto text-center">
+
+                        <p>Lots of body text here. </p>
+                        {% lorem 5 p %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}
+    <footer class="footer footer-transparent-custom">
+        <div class="container">
+            <span class="text-white">&copy; 2020 Luke Higgott</span>
+        </div>
+    </footer>
+{% endblock %}

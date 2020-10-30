@@ -89,3 +89,11 @@
     transform: rotate(360deg);
   }
 }
+
+/* geol project stuff */
+.page-header .section-feature * {
+	color: black;
+}
+.page-header .section-feature h4 {
+  font-weight: bold;
+}
