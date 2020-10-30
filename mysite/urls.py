@@ -19,6 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('luke.urls')),
+    url(r'geology/', include('geology.urls'))
 ]
 #handler404 = 'luke.views.custom404'
 #handler500 = 'luke.views.custom500'
